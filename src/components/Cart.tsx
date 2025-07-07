@@ -20,7 +20,6 @@ export default function Cart({ cart, onUpdateQuantity, onCheckout }: CartProps) 
   };
 
   return (
-    // ใช้ดีไซน์ตะกร้าแบบใหม่ที่ดูสะอาดตา
     <div className="bg-white border border-gray-200 rounded-xl shadow-2xl p-6 sticky top-6">
       <h2 className="text-2xl font-bold text-gray-800 mb-6 border-b border-gray-200 pb-4">สรุปรายการ</h2>
       
@@ -63,8 +62,7 @@ export default function Cart({ cart, onUpdateQuantity, onCheckout }: CartProps) 
               <span>ยอดรวม</span>
               <span>{calculateTotal().toLocaleString()} บาท</span>
             </div>
-            
-            {/* แต่ใช้ปุ่ม "ชำระเงิน" สีเขียวแบบเดิมที่คุ้นเคย */}
+          
             <button 
                 onClick={onCheckout}
                 className="w-full bg-green-500 text-white py-3 rounded-lg text-lg font-bold hover:bg-green-600 transition-all shadow-md hover:shadow-lg disabled:bg-gray-300"

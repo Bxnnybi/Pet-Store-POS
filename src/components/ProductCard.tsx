@@ -15,7 +15,6 @@ interface ProductCardProps {
 
 export default function ProductCard({ product, onAddToCart }: ProductCardProps) {
   return (
-    // ใช้ดีไซน์การ์ดแบบใหม่ที่ดูทันสมัย
     <div className="bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 group">
       <div className="w-full h-40 bg-gray-100 flex items-center justify-center group-hover:bg-gray-200/50 transition-colors duration-300">
         <span className="text-gray-400">รูปสินค้า</span>
@@ -33,7 +32,6 @@ export default function ProductCard({ product, onAddToCart }: ProductCardProps) 
           </p>
         </div>
 
-        {/* แต่ใช้ปุ่ม "เพิ่มลงตะกร้า" สีน้ำเงินแบบเดิมที่คุ้นเคย */}
         <button
           onClick={() => onAddToCart(product)}
           className="mt-auto w-full bg-blue-500 text-white font-semibold py-2 rounded-md hover:bg-blue-600 transition-colors disabled:bg-gray-400"
