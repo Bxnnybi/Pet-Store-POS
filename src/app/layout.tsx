@@ -8,7 +8,7 @@ const mitr = Mitr({
 });
 
 export const metadata: Metadata = {
-  title: "Pet Store POS",
+  title: "Pet Care Store POS",
   description: "ระบบขายหน้าร้านสำหรับร้านค้าสัตว์เลี้ยง",
 };
 

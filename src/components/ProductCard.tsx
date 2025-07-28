@@ -1,11 +1,15 @@
-// src/components/ProductCard.tsx
 'use client';
 
+import Image from 'next/image';
+
+// Interface สำหรับข้อมูลสินค้า, เพิ่ม image_url เข้ามา
+// การใช้ string | null จะช่วยป้องกัน error กรณีที่สินค้าบางชิ้นไม่มี URL รูปภาพในฐานข้อมูล
 interface Product {
   id: number;
   name: string;
   price: number;
   stock: number;
+  image_url: string | null; 
 }
 
 interface ProductCardProps {
@@ -16,8 +20,22 @@ interface ProductCardProps {
 export default function ProductCard({ product, onAddToCart }: ProductCardProps) {
   return (
     <div className="bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 group">
-      <div className="w-full h-40 bg-gray-100 flex items-center justify-center group-hover:bg-gray-200/50 transition-colors duration-300">
-        <span className="text-gray-400">รูปสินค้า</span>
+      
+      <div className="relative w-full h-40 bg-gray-100">
+        {product.image_url ? (
+          <Image
+            src={product.image_url}
+            alt={product.name}
+            layout="fill"
+            objectFit="cover" 
+            className="group-hover:scale-105 transition-transform duration-300"
+          />
+        ) : (
+         
+          <div className="w-full h-full flex items-center justify-center">
+            <span className="text-gray-400">ไม่มีรูปภาพ</span>
+          </div>
+        )}
       </div>
       
       <div className="p-4 flex flex-col flex-grow">
@@ -32,6 +50,7 @@ export default function ProductCard({ product, onAddToCart }: ProductCardProps) 
           </p>
         </div>
 
+      
         <button
           onClick={() => onAddToCart(product)}
           className="mt-auto w-full bg-blue-500 text-white font-semibold py-2 rounded-md hover:bg-blue-600 transition-colors disabled:bg-gray-400"
